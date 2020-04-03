@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Slitherlink
+Comment=Logic puzzle game from the maker of Sudoku
+Exec=slitherlink
+Terminal=false
+Type=Application
+StartupNotify=true
+Icon=slitherlink
+Categories=games;

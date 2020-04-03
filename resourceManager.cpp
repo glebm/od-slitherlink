@@ -13,38 +13,38 @@ CResourceManager::CResourceManager(void) :
     m_font(NULL)
 {
     // Load sounds
-    m_sounds[T_SOUND_MOVE] = SDL_utils::loadSound("res/soundMove.dat");
-    m_sounds[T_SOUND_DRAW] = SDL_utils::loadSound("res/soundDraw.dat");
-    m_sounds[T_SOUND_UNDO] = SDL_utils::loadSound("res/soundUndo.dat");
-    m_sounds[T_SOUND_SOLVED] = SDL_utils::loadSound("res/soundSolved.dat");
-    m_sounds[T_SOUND_START] = SDL_utils::loadSound("res/soundStart.dat");
-    m_sounds[T_SOUND_BACK] = SDL_utils::loadSound("res/soundBack.dat");
-    m_sounds[T_SOUND_NEXT] = SDL_utils::loadSound("res/soundNext.dat");
+    m_sounds[T_SOUND_MOVE] = SDL_utils::loadSound(RES_DIR "soundMove.dat");
+    m_sounds[T_SOUND_DRAW] = SDL_utils::loadSound(RES_DIR "soundDraw.dat");
+    m_sounds[T_SOUND_UNDO] = SDL_utils::loadSound(RES_DIR "soundUndo.dat");
+    m_sounds[T_SOUND_SOLVED] = SDL_utils::loadSound(RES_DIR "soundSolved.dat");
+    m_sounds[T_SOUND_START] = SDL_utils::loadSound(RES_DIR "soundStart.dat");
+    m_sounds[T_SOUND_BACK] = SDL_utils::loadSound(RES_DIR "soundBack.dat");
+    m_sounds[T_SOUND_NEXT] = SDL_utils::loadSound(RES_DIR "soundNext.dat");
     // Load images
-    m_surfaces[T_SURFACE_BG_TITLE] = SDL_utils::loadImage("res/title.png");
-    m_surfaces[T_SURFACE_BG_5] = SDL_utils::loadImage("res/grid5.png");
-    m_surfaces[T_SURFACE_BG_7] = SDL_utils::loadImage("res/grid7.png");
-    m_surfaces[T_SURFACE_BG_10] = SDL_utils::loadImage("res/grid10.png");
-    m_surfaces[T_SURFACE_HELP_1] = SDL_utils::loadImage("res/help1.png");
-    m_surfaces[T_SURFACE_HELP_2] = SDL_utils::loadImage("res/help2.png");
-    m_surfaces[T_SURFACE_HELP_3] = SDL_utils::loadImage("res/help3.png");
-    m_surfaces[T_SURFACE_CURSOR] = SDL_utils::loadImage("res/cursor.png");
+    m_surfaces[T_SURFACE_BG_TITLE] = SDL_utils::loadImage(RES_DIR "title.png");
+    m_surfaces[T_SURFACE_BG_5] = SDL_utils::loadImage(RES_DIR "grid5.png");
+    m_surfaces[T_SURFACE_BG_7] = SDL_utils::loadImage(RES_DIR "grid7.png");
+    m_surfaces[T_SURFACE_BG_10] = SDL_utils::loadImage(RES_DIR "grid10.png");
+    m_surfaces[T_SURFACE_HELP_1] = SDL_utils::loadImage(RES_DIR "help1.png");
+    m_surfaces[T_SURFACE_HELP_2] = SDL_utils::loadImage(RES_DIR "help2.png");
+    m_surfaces[T_SURFACE_HELP_3] = SDL_utils::loadImage(RES_DIR "help3.png");
+    m_surfaces[T_SURFACE_CURSOR] = SDL_utils::loadImage(RES_DIR "cursor.png");
     SDL_SetAlpha(m_surfaces[T_SURFACE_CURSOR], SDL_SRCALPHA, CURSOR_ALPHA_MAX);
-    m_surfaces[T_SURFACE_LINE_VERT] = SDL_utils::loadImage("res/lineVertical.png");
-    m_surfaces[T_SURFACE_LINE_HORI] = SDL_utils::loadImage("res/lineHorizontal.png");
-    m_surfaces[T_SURFACE_CROSS] = SDL_utils::loadImage("res/cross.png");
-    m_surfaces[T_SURFACE_ARROW_UP_SMALL] = SDL_utils::loadImage("res/arrowUpSmall.png");
-    m_surfaces[T_SURFACE_ARROW_DOWN_SMALL] = SDL_utils::loadImage("res/arrowDownSmall.png");
-    m_surfaces[T_SURFACE_MENU_PAUSE] = SDL_utils::loadImage("res/menuPause.png");
-    m_surfaces[T_SURFACE_MENU_CURSOR] = SDL_utils::loadImage("res/menuCursor.png");
-    m_surfaces[T_SURFACE_NOTE] = SDL_utils::loadImage("res/note.png");
-    m_surfaces[T_SURFACE_NOTE_SELECTED] = SDL_utils::loadImage("res/noteSelected.png");
-    m_surfaces[T_SURFACE_BORDER_H] = SDL_utils::loadImage("res/borderH.png");
-    m_surfaces[T_SURFACE_BORDER_V] = SDL_utils::loadImage("res/borderV.png");
+    m_surfaces[T_SURFACE_LINE_VERT] = SDL_utils::loadImage(RES_DIR "lineVertical.png");
+    m_surfaces[T_SURFACE_LINE_HORI] = SDL_utils::loadImage(RES_DIR "lineHorizontal.png");
+    m_surfaces[T_SURFACE_CROSS] = SDL_utils::loadImage(RES_DIR "cross.png");
+    m_surfaces[T_SURFACE_ARROW_UP_SMALL] = SDL_utils::loadImage(RES_DIR "arrowUpSmall.png");
+    m_surfaces[T_SURFACE_ARROW_DOWN_SMALL] = SDL_utils::loadImage(RES_DIR "arrowDownSmall.png");
+    m_surfaces[T_SURFACE_MENU_PAUSE] = SDL_utils::loadImage(RES_DIR "menuPause.png");
+    m_surfaces[T_SURFACE_MENU_CURSOR] = SDL_utils::loadImage(RES_DIR "menuCursor.png");
+    m_surfaces[T_SURFACE_NOTE] = SDL_utils::loadImage(RES_DIR "note.png");
+    m_surfaces[T_SURFACE_NOTE_SELECTED] = SDL_utils::loadImage(RES_DIR "noteSelected.png");
+    m_surfaces[T_SURFACE_BORDER_H] = SDL_utils::loadImage(RES_DIR "borderH.png");
+    m_surfaces[T_SURFACE_BORDER_V] = SDL_utils::loadImage(RES_DIR "borderV.png");
     SDL_SetAlpha(m_surfaces[T_SURFACE_BORDER_H], SDL_SRCALPHA, 153);
     SDL_SetAlpha(m_surfaces[T_SURFACE_BORDER_V], SDL_SRCALPHA, 153);
     // Load font
-    m_font = SDL_utils::loadFont("res/hardpixel.ttf", 10);
+    m_font = SDL_utils::loadFont(RES_DIR "hardpixel.ttf", 10);
     // Print static text
     this->initImages();
 }

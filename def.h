@@ -6,9 +6,22 @@
 //~ #define INHIBIT(X) X
 #define INHIBIT(X) /* X */
 
+#ifndef RES_DIR
+#define RES_DIR "res/"
+#endif
+
+#ifndef SCREEN_WIDTH
 #define SCREEN_WIDTH 320
+#endif
+
+#ifndef SCREEN_HEIGHT
 #define SCREEN_HEIGHT 240
+#endif
+
+#ifndef SCREEN_BPP
 #define SCREEN_BPP 16
+#endif
+
 #define MS_PER_FRAME 33
 #define NB_LEVELS 456
 #define NB_LEVELS_EASY 30
@@ -22,7 +35,7 @@
 #define SAVE_FILE "slitherlink.sav"
 #define SAVE_STATE_FILE "slitherlink_state.sav"
 #define CONFIG_FILE "slitherlink.cfg"
-#define LEVELDATA_FILE "res/levels.dat"
+#define LEVELDATA_FILE RES_DIR"levels.dat"
 #define KEYHOLD_TIMER_FIRST 6
 #define KEYHOLD_TIMER 2
 #define TEXT_GAP 16
@@ -34,36 +47,66 @@
 #define CURSOR_ALPHA_MIN 40
 #define CURSOR_ALPHA_STEP 4
 
-#ifdef PLATFORM_DINGOO
-// Keys for Dingoo
-#define MYKEY_UP        SDLK_UP
-#define MYKEY_RIGHT     SDLK_RIGHT
-#define MYKEY_DOWN      SDLK_DOWN
-#define MYKEY_LEFT      SDLK_LEFT
-#define MYKEY_LINEUP    SDLK_SPACE
-#define MYKEY_LINERIGHT SDLK_LCTRL
-#define MYKEY_LINEDOWN  SDLK_LALT
-#define MYKEY_LINELEFT  SDLK_LSHIFT
-#define MYKEY_QUIT      SDLK_ESCAPE
-#define MYKEY_START     SDLK_RETURN
-#define MYKEY_MOD       SDLK_TAB
-#define MYKEY_UNDO      SDLK_BACKSPACE
-#else
-// Keys for PC keyboard
-#define MYKEY_UP        SDLK_UP
-#define MYKEY_RIGHT     SDLK_RIGHT
-#define MYKEY_DOWN      SDLK_DOWN
-#define MYKEY_LEFT      SDLK_LEFT
-#define MYKEY_LINEUP    SDLK_r
-#define MYKEY_LINERIGHT SDLK_g
-#define MYKEY_LINEDOWN  SDLK_f
-#define MYKEY_LINELEFT  SDLK_d
-#define MYKEY_QUIT      SDLK_q
-#define MYKEY_START     SDLK_s
-#define MYKEY_MOD       SDLK_l
-#define MYKEY_UNDO      SDLK_u
+#ifndef MYKEY_UP
+#define MYKEY_UP SDLK_UP
 #endif
-
+#ifndef MYKEY_RIGHT
+#define MYKEY_RIGHT SDLK_RIGHT
+#endif
+#ifndef MYKEY_DOWN
+#define MYKEY_DOWN SDLK_DOWN
+#endif
+#ifndef MYKEY_LEFT
+#define MYKEY_LEFT SDLK_LEFT
+#endif
+#ifndef MYKEY_LINEUP
+#define MYKEY_LINEUP SDLK_r
+#endif
+#ifndef MYKEY_LINERIGHT
+#define MYKEY_LINERIGHT SDLK_g
+#endif
+#ifndef MYKEY_LINEDOWN
+#define MYKEY_LINEDOWN SDLK_f
+#endif 
+#ifndef MYKEY_LINELEFT
+#define MYKEY_LINELEFT SDLK_d
+#endif
+#ifndef MYKEY_QUIT
+#define MYKEY_QUIT SDLK_q
+#endif
+#ifndef MYKEY_START
+#define MYKEY_START SDLK_s
+#endif
+#ifndef MYKEY_MOD
+#define MYKEY_MOD SDLK_l
+#endif
+#ifndef MYKEY_UNDO
+#define MYKEY_UNDO SDLK_u
+#endif
+#ifndef MYKEY_SYSTEM
+#define MYKEY_SYSTEM SDLK_q
+#endif
+#ifndef MYKEY_PAGEUP
+#define MYKEY_PAGEUP SDLK_PAGEUP
+#endif
+#ifndef MYKEY_PAGEDOWN
+#define MYKEY_PAGEDOWN SDLK_PAGEDOWN
+#endif
+#ifndef MYKEY_OPEN
+#define MYKEY_OPEN SDLK_RETURN
+#endif
+#ifndef MYKEY_PARENT
+#define MYKEY_PARENT SDLK_BACKSPACE
+#endif
+#ifndef MYKEY_OPERATION
+#define MYKEY_OPERATION SDLK_a
+#endif
+#ifndef MYKEY_SELECT
+#define MYKEY_SELECT SDLK_INSERT
+#endif
+#ifndef MYKEY_TRANSFER
+#define MYKEY_TRANSFER SDLK_w
+#endif
 
 // Directions
 typedef enum
