@@ -44,6 +44,9 @@ int main(int argc, char** argv)
     // Init SDL
     SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
 
+    // Hide cursor before creating the output surface.
+    SDL_ShowCursor(SDL_DISABLE);
+
     // Screen
     SDL_Surface *l_screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE);
     if (l_screen == NULL)
@@ -51,9 +54,6 @@ int main(int argc, char** argv)
         std::cout << "SDL_SetVideoMode failed: " << SDL_GetError() << std::endl;
         return 1;
     }
-
-    // Hide cursor
-    SDL_ShowCursor(SDL_DISABLE);
 
     // Init font
     if (TTF_Init() == -1)
