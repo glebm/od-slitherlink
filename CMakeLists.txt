@@ -64,7 +64,7 @@ target_link_libraries(${BIN_TARGET} PRIVATE
 )
 
 set(TARGET_PLATFORM host CACHE STRING "Target platform")
-set_property(CACHE TARGET_PLATFORM PROPERTY STRINGS host retrofw gcw0 rg350)
+set_property(CACHE TARGET_PLATFORM PROPERTY STRINGS host retrofw gcw0 rg350 miyoo)
 
 if(TARGET_PLATFORM STREQUAL "retrofw")
   include(CMake/retrofw_defs.cmake)
@@ -72,6 +72,21 @@ elseif(TARGET_PLATFORM STREQUAL "gcw0")
   include(CMake/rg350_defs.cmake)
 elseif(TARGET_PLATFORM STREQUAL "rg350")
   include(CMake/rg350_defs.cmake)
+elseif(TARGET_PLATFORM STREQUAL "miyoo")
+  include(CMake/miyoo_defs.cmake)
+  target_link_libraries(${BIN_TARGET} PRIVATE
+  mpg123
+  mikmod
+  vorbisfile
+  vorbis
+  ogg
+  freetype
+  bz2
+  z
+  png
+  jpeg
+  asound
+)
 endif()
 
 foreach(
