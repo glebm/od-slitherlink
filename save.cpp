@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <sstream>
 #include <cstdio>
+#include <sys/stat.h>
 #include "save.h"
 #include "def.h"
 
@@ -15,6 +16,19 @@ CSave& CSave::instance(void)
 CSave::CSave(void):
     m_save("")
 {
+	// Create local config directory (if needed)
+	INHIBIT(std::cout << "Local storage directory: " << LOCAL_STORAGE_DIR << std::endl;)
+	if (LOCAL_STORAGE_DIR != std::string(""))
+	{
+		if (mkdir(LOCAL_STORAGE_DIR, 0755) == 0)
+		{
+			INHIBIT(std::cout << "Local storage directory " << LOCAL_STORAGE_DIR << " created successfully" << std::endl;)
+		}
+		else
+		{
+			INHIBIT(std::cout << "Unable to create " << LOCAL_STORAGE_DIR << " (maybe already exists?)" << std::endl;)
+		}
+	}
     // Load save file
     {
         std::ifstream l_file(SAVE_FILE);

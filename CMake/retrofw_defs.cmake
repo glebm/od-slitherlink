@@ -1,4 +1,5 @@
 set(RES_DIR "")
+set(LOCAL_STORAGE_DIR "\"/home/retrofw/.slitherlink/\"")
 set(MYKEY_UP SDLK_UP)
 set(MYKEY_RIGHT SDLK_RIGHT)
 set(MYKEY_DOWN SDLK_DOWN)

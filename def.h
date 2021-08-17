@@ -10,6 +10,10 @@
 #define RES_DIR "res/"
 #endif
 
+#ifndef LOCAL_STORAGE_DIR
+#define LOCAL_STORAGE_DIR ""
+#endif
+
 #ifndef SCREEN_WIDTH
 #define SCREEN_WIDTH 320
 #endif
@@ -32,9 +36,9 @@
 #define COLOR_RED 154,0,0
 #define COLOR_BLUE 120,153,162
 #define COLOR_GREEN 90,150,90
-#define SAVE_FILE "slitherlink.sav"
-#define SAVE_STATE_FILE "slitherlink_state.sav"
-#define CONFIG_FILE "slitherlink.cfg"
+#define SAVE_FILE LOCAL_STORAGE_DIR"slitherlink.sav"
+#define SAVE_STATE_FILE LOCAL_STORAGE_DIR"slitherlink_state.sav"
+#define CONFIG_FILE LOCAL_STORAGE_DIR"slitherlink.cfg"
 #define LEVELDATA_FILE RES_DIR"levels.dat"
 #define KEYHOLD_TIMER_FIRST 6
 #define KEYHOLD_TIMER 2
