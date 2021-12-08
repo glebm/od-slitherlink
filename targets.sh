@@ -2,6 +2,8 @@ declare -ra VALID_TARGETS=(
   gcw0
   retrofw
   rg350
+  rg99
+  lepus
 )
 
 usage_target() {

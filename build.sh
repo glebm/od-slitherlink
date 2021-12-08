@@ -44,18 +44,21 @@ make_buildroot() {
   if (( ${#deps[@]} )); then
     make "${deps[@]}" BR2_JLEVEL=0
   fi
+  TOOLCHAIN="$BUILDROOT/output/host"
   cd -
 }
 
 build() {
-  mkdir -p "build-$TARGET"
-  cd "build-$TARGET"
-  cmake .. \
+  BUILD_DIR="build-$TARGET"
+  cmake -S. -B"$BUILD_DIR" \
     -DCMAKE_BUILD_TYPE=Release \
     -DTARGET_PLATFORM="$TARGET" \
-    -DCMAKE_TOOLCHAIN_FILE="$BUILDROOT/output/host/usr/share/buildroot/toolchainfile.cmake"
-  cmake --build . -j $(getconf _NPROCESSORS_ONLN)
-  cd -
+    -DCMAKE_TOOLCHAIN_FILE="${TOOLCHAIN}/usr/share/buildroot/toolchainfile.cmake"
+  cmake --build "$BUILD_DIR" -j $(getconf _NPROCESSORS_ONLN)
+}
+
+strip_bin() {
+	"${TOOLCHAIN}/usr/bin/"*-linux-strip "${BUILD_DIR}/slitherlink"
 }
 
 package_opk() {
@@ -63,10 +66,14 @@ package_opk() {
 }
 
 main() {
-  check_buildroot
-  set -x
-  make_buildroot
+  # If a TOOLCHAIN environment variable is set, just use that.
+  if [[ -z ${TOOLCHAIN:-} ]]; then
+    check_buildroot
+    set -x
+    make_buildroot
+  fi
   build
+  strip_bin
   package_opk
 }
 
