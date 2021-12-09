@@ -1,14 +1,5 @@
-Slitherlink v1.1 for Dingux
+Slitherlink v1.2
 ---------------------------
-
-
-History
--------
-
-2011-01-28 : Version 1.1 : Sound files renamed to avoid being included in
-                           the native firmware's jukebox playlist.
-2011-01-13 : Version 1.0 : Initial version.
-
 
 Introduction
 ------------

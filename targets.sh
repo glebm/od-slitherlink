@@ -4,6 +4,7 @@ declare -ra VALID_TARGETS=(
   rg350
   rg99
   lepus
+  miyoo
 )
 
 usage_target() {

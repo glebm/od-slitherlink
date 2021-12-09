@@ -65,6 +65,18 @@ package_opk() {
   ./package-opk.sh "$TARGET"
 }
 
+package_zip() {
+  ZIP_DIR="$BUILD_DIR/zip/slitherlink"
+  rm -rf "$ZIP_DIR"
+  mkdir -p "${ZIP_DIR}/res"
+  cp -r res/*.* "${ZIP_DIR}/res/"
+  cp README.txt "$BUILD_DIR/slitherlink" opkg/slitherlink.png "$ZIP_DIR"
+  cd "$BUILD_DIR/zip"
+  rm -f "../slitherlink-${TARGET}.zip"
+  zip -9 -r "../slitherlink-${TARGET}.zip" slitherlink
+  cd -
+}
+
 main() {
   # If a TOOLCHAIN environment variable is set, just use that.
   if [[ -z ${TOOLCHAIN:-} ]]; then
@@ -74,7 +86,11 @@ main() {
   fi
   build
   strip_bin
-  package_opk
+  if [[ $TARGET == miyoo ]]; then
+    package_zip
+  else
+    package_opk
+  fi
 }
 
 main
